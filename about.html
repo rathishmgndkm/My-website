@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NEXUS PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #764ba2);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* FIXED HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px;
+            text-align: center;
+            background: rgba(15, 12, 41, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #00d2ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        #clock-box { margin-top: 5px; }
+        #time { font-size: 1.4rem; font-weight: 600; color: #00d2ff; }
+        #date { font-size: 0.8rem; opacity: 0.7; margin-left: 10px; }
+
+        /* CONTENT AREA */
+        .content-container {
+            width: 90%;
+            max-width: 800px;
+            padding: 50px 0;
+            flex-grow: 1;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            line-height: 1.8;
+            animation: slideUp 0.8s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #00d2ff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 i { font-size: 1.5rem; }
+
+        .info-section {
+            margin-bottom: 40px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #92fe9d;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: #302b63;
+        }
+
+        footer { padding: 30px; font-size: 0.8rem; opacity: 0.5; text-align: center; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="main-heading">NEXUS PRO</a>
+        <div id="clock-box">
+            <span id="time">00:00:00</span>
+            <span id="date">LOADING...</span>
+        </div>
+    </header>
+
+    <div class="content-container">
+        
+        <div class="about-card">
+            <div class="info-section">
+                <h2><i class="fas fa-user-circle"></i> About Me</h2>
+                <p>Hello! I am <strong>Ratheesh MG</strong>.</p>
+                <p>I am a technology enthusiast dedicated to creating clean, functional, and futuristic digital experiences. I believe in the power of simple design and efficient tools to improve our daily digital interactions.</p>
+            </div>
+
+            <div class="info-section">
+                <h2><i class="fas fa-rocket"></i> About the Site</h2>
+                <p><strong>NEXUS PRO</strong> is designed as a centralized digital dashboard. It aims to provide users with a smooth and high-performance interface to access various utilities like media, documents, and tools all in one place.</p>
+            </div>
+
+            <div class="contact-box">
+                <h2><i class="fas fa-address-book"></i> Get in Touch</h2>
+                <a href="mailto:rathishmgndkm@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> rathishmgndkm@gmail.com
+                </a>
+            </div>
+
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2025 NEXUS PRO | Designed by Ratheesh MG
+    </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').innerText = now.toLocaleTimeString('en-US');
+            document.getElementById('date').innerText = now.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
