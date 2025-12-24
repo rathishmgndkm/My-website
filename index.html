@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS PRO - Digital Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #764ba2);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* FIXED HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px;
+            text-align: center;
+            background: rgba(15, 12, 41, 0.6);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #00d2ff, #92fe9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
+        }
+
+        #clock-box { margin-top: 10px; }
+        #time { font-size: 1.5rem; font-weight: 600; color: #00d2ff; }
+        #date { font-size: 0.8rem; opacity: 0.7; margin-left: 10px; }
+
+        /* GRID SYSTEM */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        @media (min-width: 600px) {
+            .menu-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* CARD STYLING */
+        .grid-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            color: white;
+            text-decoration: none; /* ലിങ്ക് അണ്ടർലൈൻ ഒഴിവാക്കാൻ */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-card i { font-size: 2rem; margin-bottom: 12px; color: #00d2ff; transition: 0.3s; }
+        .grid-card span { font-size: 0.95rem; font-weight: 400; }
+
+        .grid-card:hover {
+            background: rgba(0, 210, 255, 0.15);
+            transform: translateY(-8px);
+            border-color: #00d2ff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .grid-card:hover i { transform: scale(1.1); color: #fff; }
+
+        footer { margin-top: auto; padding: 25px; font-size: 0.8rem; opacity: 0.4; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="main-heading">NEXUS PRO</h1>
+        <div id="clock-box">
+            <span id="time">00:00:00</span>
+            <span id="date">LOADING...</span>
+        </div>
+    </header>
+
+    <div class="menu-grid">
+        <a href="index.html" class="grid-card">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="about.html" class="grid-card">
+            <i class="fas fa-user"></i>
+            <span>About</span>
+        </a>
+
+        <div class="grid-card"><i class="fas fa-play"></i><span>Videos</span></div>
+        <div class="grid-card"><i class="fas fa-music"></i><span>Music</span></div>
+        <div class="grid-card"><i class="fas fa-folder-open"></i><span>Docs</span></div>
+        <div class="grid-card"><i class="fas fa-mobile-screen"></i><span>Apps</span></div>
+        <div class="grid-card"><i class="fas fa-phone"></i><span>Contact</span></div>
+        <div class="grid-card"><i class="fas fa-gamepad"></i><span>Games</span></div>
+        <div class="grid-card"><i class="fas fa-camera"></i><span>Gallery</span></div>
+        <div class="grid-card"><i class="fas fa-wrench"></i><span>Tools</span></div>
+        <div class="grid-card"><i class="fas fa-gear"></i><span>Settings</span></div>
+        <div class="grid-card"><i class="fas fa-share-nodes"></i><span>Share</span></div>
+    </div>
+
+    <footer>
+        &copy; 2025 NEXUS PRO | Designed by Ratheesh MG
+    </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').innerText = now.toLocaleTimeString('en-US');
+            document.getElementById('date').innerText = now.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric' });
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
